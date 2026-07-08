@@ -8,15 +8,20 @@
 @source '../../**/*.{vue,ts}';
 
 /*
- * Neutral placeholder design tokens. This is what makes each template look different —
- * replace the font and colors with your template's own art direction (DA).
+ * electrician-lumen (« Nuit électrique ») design tokens.
+ *
+ * The template's per-component colors are derived at runtime inside the root's `.lumen`
+ * scope (from `--lumen-yellow` / `--lumen-night` / `--lumen-amber`, themed from the client
+ * palette). Only the global-facing tokens live here: the display / mono / body typefaces
+ * (Chakra Petch + IBM Plex Mono + Archivo, loaded via <useHead> in the root) and the base
+ * dark palette (night #070B14, yellow #FFD400, amber #FF9F1C).
  */
 @theme {
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Archivo', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Chakra Petch', 'Archivo', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 
-  --color-brand: #2f6df0;
-  --color-brand-soft: #5b8ef5;
-  --color-surface: #ffffff;
-  --color-ink: #0f172a;
-  --color-muted: #64748b;
+  --color-lumen-night: #070b14;
+  --color-lumen-yellow: #ffd400;
+  --color-lumen-amber: #ff9f1c;
 }
