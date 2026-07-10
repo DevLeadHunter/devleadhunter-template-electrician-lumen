@@ -17,6 +17,9 @@ export const mockSiteContent: SiteContent = {
   email: 'contact@voltis-electricite.fr',
   city: 'Nantes',
   area: 'Loire-Atlantique',
+  // Copie éditoriale éditée par le client dans son CMS (absente = défaut de la template).
+  heroBadge: 'Électricien certifié depuis 2008',
+  servicesHeading: 'Nos prestations',
   about:
     "Électricien installé à Nantes depuis plus de douze ans, j'interviens sur vos dépannages, mises aux normes et rénovations complètes avec la même exigence. Quand vous appelez, vous parlez directement à l'artisan qui viendra chez vous — pas à un standard. Diagnostic honnête, matériel certifié et installation vérifiée avant remise sous tension : c'est ma façon de travailler.",
   heroImage: 'https://picsum.photos/seed/lumen-hero/800/600',

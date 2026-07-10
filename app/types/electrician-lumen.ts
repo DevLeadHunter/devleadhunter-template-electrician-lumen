@@ -72,6 +72,10 @@ export interface LumenSafetyContent {
   kicker: string
   heading: string
   text: string
+  /** Photo secondaire du prospect (`SiteContent.aboutImage`) — chaîne vide = pas de photo. */
+  image: string
+  /** Légende éditoriale affichée sous la photo (défaut de la template). */
+  imageCaption: string
   items: LumenSafetyItem[]
 }
 
@@ -191,6 +195,7 @@ const lumenDefaults = {
   safetyHeading: 'Une installation sûre, aux normes',
   safetyText:
     'Une installation électrique, ça ne se voit pas — mais ça doit être irréprochable. Chaque intervention respecte la norme NF C 15-100 : protections adaptées, mise à la terre et différentiels haute sensibilité. On sécurise, on vérifie, et on vous explique.',
+  safetyImageCaption: "L'artisan sur le terrain",
   safetyItems: [
     { code: 'NF C 15-100', label: 'Norme des installations basse tension' },
     { code: 'Consuel', label: 'Attestation de conformité' },
@@ -242,6 +247,16 @@ const lumenDefaults = {
 } as const
 
 /**
+ * Retourne le texte éditorial du contenu s'il est non vide, sinon le défaut de la template.
+ * @param value Texte éditorial issu de `SiteContent` (potentiellement absent).
+ * @param templateDefault Copie par défaut possédée par la template.
+ * @returns Le texte à afficher.
+ */
+function resolveEditorialText(value: string | undefined, templateDefault: string): string {
+  return typeof value === 'string' && value.trim().length > 0 ? value : templateDefault
+}
+
+/**
  * Formate une liste d'horaires d'ouverture en une chaîne lisible.
  * @param openingHours Liste `{ day, hours }` issue de `SiteContent` (potentiellement absente).
  * @returns Une chaîne « Jour hh–hh · Jour hh–hh », ou une chaîne vide si aucune donnée.
@@ -275,14 +290,36 @@ function formatOpeningHours(openingHours: SiteContent['openingHours']): string {
  * Les champs VARIABLES (nom, téléphone, ville, services, avis, galerie, FAQ, horaires…)
  * proviennent de `content` ; les champs BOILERPLATE (titres de sections, cadrage éditorial,
  * repères de confiance, normes de sécurité, étapes…) proviennent des défauts de la template.
+ * La copie ÉDITORIALE éditable par le client (badge et points du hero, libellés CTA, repères
+ * de confiance, titres de sections — `aboutHeading` pilote le titre de la section sécurité)
+ * est reprise de `content` quand elle est non vide, sinon retombe sur les défauts.
  * Les règles de filtrage d'origine sont conservées : galerie limitée à 8 éléments, avis/FAQ
  * sans texte écartés. `content.about` alimente le texte de la section sécurité (fallback défaut),
- * `service.icon` pilote l'icône (fallback `panne`).
+ * `content.aboutImage` sa photo (masquée si absente), `service.icon` pilote l'icône
+ * (fallback `panne`).
  * @param content Données variables du prospect.
  * @returns Le contenu typé prêt pour le rendu par les sections.
  */
 export function buildElectricianLumenContent(content: SiteContent): LumenPageContent {
   const palette = content.palette ?? {}
+
+  const trustItemsFromContent: LumenTrustItem[] = Array.isArray(content.trustItems)
+    ? content.trustItems
+        .map((item): LumenTrustItem => ({ value: item.value ?? '', label: item.label ?? '' }))
+        .filter((item): boolean => item.value.length > 0 || item.label.length > 0)
+    : []
+  const trustItems: LumenTrustItem[] = trustItemsFromContent.length
+    ? trustItemsFromContent
+    : lumenDefaults.trustItems
+
+  const heroPointsFromContent: string[] = Array.isArray(content.heroPoints)
+    ? content.heroPoints.filter(
+        (point): boolean => typeof point === 'string' && point.trim().length > 0,
+      )
+    : []
+  const heroPoints: string[] = heroPointsFromContent.length
+    ? heroPointsFromContent
+    : lumenDefaults.heroPoints
 
   const areaLabel: string =
     typeof content.area === 'string' && content.area.length > 0
@@ -309,7 +346,7 @@ export function buildElectricianLumenContent(content: SiteContent): LumenPageCon
           : lumenDefaultTheme.accent,
     },
     hero: {
-      badge: lumenDefaults.heroBadge,
+      badge: resolveEditorialText(content.heroBadge, lumenDefaults.heroBadge),
       title: content.businessName ?? '',
       subtitle:
         content.subtitle && content.subtitle.length > 0
@@ -317,13 +354,13 @@ export function buildElectricianLumenContent(content: SiteContent): LumenPageCon
           : lumenDefaults.heroSubtitle,
       city: content.city ?? '',
       phone: content.phone ?? '',
-      ctaCallLabel: lumenDefaults.heroCtaCallLabel,
-      ctaQuoteLabel: lumenDefaults.heroCtaQuoteLabel,
+      ctaCallLabel: resolveEditorialText(content.ctaCallLabel, lumenDefaults.heroCtaCallLabel),
+      ctaQuoteLabel: resolveEditorialText(content.ctaQuoteLabel, lumenDefaults.heroCtaQuoteLabel),
       image: content.heroImage ?? '',
       imageCaption: '',
-      points: lumenDefaults.heroPoints,
+      points: heroPoints,
     },
-    trustItems: lumenDefaults.trustItems,
+    trustItems,
     emergency: {
       heading: lumenDefaults.emergencyHeading,
       text: lumenDefaults.emergencyText,
@@ -332,7 +369,7 @@ export function buildElectricianLumenContent(content: SiteContent): LumenPageCon
       items: lumenDefaults.emergencyItems,
     },
     services: {
-      heading: lumenDefaults.servicesHeading,
+      heading: resolveEditorialText(content.servicesHeading, lumenDefaults.servicesHeading),
       subheading: lumenDefaults.servicesSubheading,
       items: Array.isArray(content.services)
         ? content.services.map((service): LumenServiceItem => ({
@@ -344,12 +381,14 @@ export function buildElectricianLumenContent(content: SiteContent): LumenPageCon
     },
     safety: {
       kicker: lumenDefaults.safetyKicker,
-      heading: lumenDefaults.safetyHeading,
+      heading: resolveEditorialText(content.aboutHeading, lumenDefaults.safetyHeading),
       text: content.about && content.about.length > 0 ? content.about : lumenDefaults.safetyText,
+      image: content.aboutImage ?? '',
+      imageCaption: lumenDefaults.safetyImageCaption,
       items: lumenDefaults.safetyItems,
     },
     gallery: {
-      heading: lumenDefaults.galleryHeading,
+      heading: resolveEditorialText(content.galleryHeading, lumenDefaults.galleryHeading),
       subheading: lumenDefaults.gallerySubheading,
       items: Array.isArray(content.gallery)
         ? content.gallery
@@ -367,7 +406,7 @@ export function buildElectricianLumenContent(content: SiteContent): LumenPageCon
       items: lumenDefaults.processItems,
     },
     reviews: {
-      heading: lumenDefaults.reviewsHeading,
+      heading: resolveEditorialText(content.reviewsHeading, lumenDefaults.reviewsHeading),
       items: Array.isArray(content.reviews)
         ? content.reviews
             .map((review): LumenReviewItem => ({
@@ -388,7 +427,7 @@ export function buildElectricianLumenContent(content: SiteContent): LumenPageCon
       note: lumenDefaults.zoneNote,
     },
     faq: {
-      heading: lumenDefaults.faqHeading,
+      heading: resolveEditorialText(content.faqHeading, lumenDefaults.faqHeading),
       items: Array.isArray(content.faq)
         ? content.faq
             .map((item): LumenFaqItem => ({
@@ -399,7 +438,7 @@ export function buildElectricianLumenContent(content: SiteContent): LumenPageCon
         : [],
     },
     contact: {
-      heading: lumenDefaults.contactHeading,
+      heading: resolveEditorialText(content.contactHeading, lumenDefaults.contactHeading),
       subheading: lumenDefaults.contactSubheading,
       phone: content.phone ?? '',
       email: content.email ?? '',

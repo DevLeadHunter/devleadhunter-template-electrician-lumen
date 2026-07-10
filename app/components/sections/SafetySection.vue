@@ -22,6 +22,24 @@
             class="lumen-safety__note-icon" />
           Contrôle systématique en fin d'intervention
         </p>
+
+        <figure
+          v-if="safety.image"
+          class="lumen-safety__figure"
+          data-lumen-reveal
+          :style="{ '--lumen-reveal-delay': '80ms' }">
+          <img
+            :src="safety.image"
+            :alt="safety.imageCaption"
+            class="lumen-safety__photo"
+            loading="lazy" />
+          <figcaption class="lumen-safety__figure-caption">
+            <span
+              class="lumen-safety__figure-dot"
+              aria-hidden="true"></span>
+            {{ safety.imageCaption }}
+          </figcaption>
+        </figure>
       </div>
 
       <div
@@ -65,6 +83,8 @@
  * Section « Sécurité & normes » : les normes (NF C 15-100, Consuel, 30 mA, terre)
  * sont présentées comme les modules d'un tableau électrique. Quand la section
  * entre à l'écran, les disjoncteurs s'enclenchent un par un — cliquables ensuite.
+ * La colonne texte affiche aussi la photo « à propos » du prospect
+ * (`SiteContent.aboutImage`) dans un cadre façon hero — masquée si absente.
  */
 import type { Ref } from 'vue'
 import LumenIcon from './LumenIcon.vue'
@@ -161,6 +181,52 @@ onMounted((): void => {
 .lumen-safety__note-icon {
   width: 15px;
   height: 15px;
+}
+
+/* ---- Photo « à propos » (aboutImage du prospect, masquée si absente) ---- */
+
+.lumen-safety__figure {
+  margin: 2.2rem 0 0;
+  border: 1px solid var(--lumen-line);
+  background: var(--lumen-panel);
+  padding: 0.7rem;
+  clip-path: polygon(
+    14px 0,
+    100% 0,
+    100% calc(100% - 14px),
+    calc(100% - 14px) 100%,
+    0 100%,
+    0 14px
+  );
+  box-shadow: 0 20px 60px -30px color-mix(in srgb, var(--lumen-yellow) 20%, transparent);
+}
+
+.lumen-safety__photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  filter: saturate(0.94) contrast(1.04);
+}
+
+.lumen-safety__figure-caption {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0.7rem 0.25rem 0.05rem;
+  font-family: var(--lumen-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lumen-muted);
+}
+
+.lumen-safety__figure-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--lumen-amber);
+  box-shadow: 0 0 8px 1px color-mix(in srgb, var(--lumen-amber) 75%, transparent);
 }
 
 /* ---- Le tableau ---- */
