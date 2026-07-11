@@ -92,6 +92,26 @@
     <footer class="lumen-footer">
       <div class="lumen-container lumen-footer__inner">
         <p class="lumen-footer__brand">{{ parsed.hero.title || businessName }}</p>
+
+        <!-- Réseaux sociaux (masqués si le prospect n'en a aucun) -->
+        <ul
+          v-if="parsed.social.length"
+          class="lumen-footer__social">
+          <li
+            v-for="link in parsed.social"
+            :key="link.network">
+            <a
+              :href="link.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              :title="link.label"
+              :aria-label="link.label"
+              class="lumen-footer__social-link">
+              {{ link.label }}
+            </a>
+          </li>
+        </ul>
+
         <p class="lumen-footer__meta">
           <template v-if="parsed.contact.city">{{ parsed.contact.city }} · </template>
           <template v-if="parsed.contact.phone">{{ parsed.contact.phone }} · </template>
@@ -639,6 +659,41 @@ useHead({
   font-size: 0.74rem;
   letter-spacing: 0.06em;
   color: var(--lumen-muted);
+}
+
+.lumen-footer__social {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lumen-footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.95rem;
+  font-family: var(--lumen-font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lumen-muted);
+  text-decoration: none;
+  border: 1px solid var(--lumen-line);
+  background: color-mix(in srgb, white 3%, transparent);
+  clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.lumen-footer__social-link:hover {
+  color: var(--lumen-yellow);
+  border-color: color-mix(in srgb, var(--lumen-yellow) 60%, transparent);
+  background: color-mix(in srgb, var(--lumen-yellow) 8%, transparent);
 }
 
 /* ---- Allumage & reveals ---- */

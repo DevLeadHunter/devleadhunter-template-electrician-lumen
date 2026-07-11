@@ -137,6 +137,10 @@ export const mockSiteContent: SiteContent = {
     },
   ],
   zones: ['Nantes', 'Saint-Herblain', 'Rezé', 'Vertou', 'Orvault', 'Carquefou'],
+  social: [
+    { network: 'facebook', url: 'https://facebook.com/voltis-electricite' },
+    { network: 'instagram', url: 'https://instagram.com/voltis.electricite' },
+  ],
   openingHours: [
     { day: 'Lundi', hours: '8h–18h' },
     { day: 'Mardi', hours: '8h–18h' },
