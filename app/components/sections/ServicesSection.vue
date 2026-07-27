@@ -127,7 +127,7 @@ defineProps<{
 
 .lumen-services__label {
   margin-top: 1.15rem;
-  font-family: var(--lumen-font-display);
+  font-family: var(--lumen-font-lumen-display);
   font-weight: 600;
   font-size: 1.02rem;
   text-transform: uppercase;
@@ -146,7 +146,7 @@ defineProps<{
   position: absolute;
   top: 1.15rem;
   right: 1.2rem;
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   color: color-mix(in srgb, white 22%, transparent);

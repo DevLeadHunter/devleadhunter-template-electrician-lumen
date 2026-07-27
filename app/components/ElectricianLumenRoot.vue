@@ -359,8 +359,8 @@ useHead({
   --lumen-text: #e9eef6;
   --lumen-muted: #93a0b8;
   --lumen-nav-height: 4.3rem;
-  --lumen-font-display: 'Chakra Petch', 'Archivo', sans-serif;
-  --lumen-font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --lumen-font-lumen-display: 'Chakra Petch', 'Archivo', sans-serif;
+  --lumen-font-lumen-mono: 'IBM Plex Mono', ui-monospace, monospace;
   --lumen-font-body: 'Archivo', sans-serif;
 
   position: relative;
@@ -410,7 +410,7 @@ useHead({
 
 .lumen-heading {
   margin-top: 1rem;
-  font-family: var(--lumen-font-display);
+  font-family: var(--lumen-font-lumen-display);
   font-weight: 700;
   font-size: clamp(1.7rem, 3.6vw, 2.5rem);
   line-height: 1.08;
@@ -424,7 +424,7 @@ useHead({
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-size: 0.74rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -452,7 +452,7 @@ useHead({
   justify-content: center;
   gap: 0.55rem;
   padding: 0.85rem 1.5rem;
-  font-family: var(--lumen-font-display);
+  font-family: var(--lumen-font-lumen-display);
   font-weight: 600;
   font-size: 0.88rem;
   text-transform: uppercase;
@@ -550,7 +550,7 @@ useHead({
 }
 
 .lumen-nav__brand-name {
-  font-family: var(--lumen-font-display);
+  font-family: var(--lumen-font-lumen-display);
   font-weight: 600;
   font-size: 0.95rem;
   text-transform: uppercase;
@@ -615,7 +615,7 @@ useHead({
 
 .lumen-nav__phone-number {
   display: none;
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-size: 0.86rem;
 }
 
@@ -646,7 +646,7 @@ useHead({
 }
 
 .lumen-footer__brand {
-  font-family: var(--lumen-font-display);
+  font-family: var(--lumen-font-lumen-display);
   font-weight: 600;
   font-size: 0.95rem;
   text-transform: uppercase;
@@ -655,7 +655,7 @@ useHead({
 }
 
 .lumen-footer__meta {
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-size: 0.74rem;
   letter-spacing: 0.06em;
   color: var(--lumen-muted);
@@ -675,7 +675,7 @@ useHead({
   display: inline-flex;
   align-items: center;
   padding: 0.5rem 0.95rem;
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-size: 0.7rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;

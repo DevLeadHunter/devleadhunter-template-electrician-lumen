@@ -119,7 +119,7 @@ defineProps<{
   bottom: 0.45rem;
   margin: 0;
   padding: 1.6rem 0.8rem 0.6rem;
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-size: 0.7rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;

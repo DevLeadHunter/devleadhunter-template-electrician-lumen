@@ -77,7 +77,7 @@ defineProps<{
   position: relative;
   display: flex;
   align-items: center;
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-weight: 600;
   font-size: 1.7rem;
   color: var(--lumen-yellow);
@@ -105,7 +105,7 @@ defineProps<{
 
 .lumen-process__title {
   margin-top: 0.9rem;
-  font-family: var(--lumen-font-display);
+  font-family: var(--lumen-font-lumen-display);
   font-weight: 600;
   font-size: 1.05rem;
   text-transform: uppercase;

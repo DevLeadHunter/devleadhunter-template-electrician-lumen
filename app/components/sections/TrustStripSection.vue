@@ -76,7 +76,7 @@ defineProps<{
 
 .lumen-trust__value {
   margin: 0.35rem 0 0;
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-weight: 600;
   font-size: clamp(1.15rem, 2.2vw, 1.45rem);
   color: var(--lumen-text);
@@ -86,7 +86,7 @@ defineProps<{
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-size: 0.7rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;

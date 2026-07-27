@@ -171,7 +171,7 @@ onMounted((): void => {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-size: 0.78rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -215,7 +215,7 @@ onMounted((): void => {
   gap: 0.55rem;
   margin: 0;
   padding: 0.7rem 0.25rem 0.05rem;
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -250,7 +250,7 @@ onMounted((): void => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-size: 0.72rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -347,7 +347,7 @@ onMounted((): void => {
 
 .lumen-safety__code {
   margin-top: 0.85rem;
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-weight: 600;
   font-size: 0.92rem;
   letter-spacing: 0.05em;

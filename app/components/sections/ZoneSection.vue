@@ -122,7 +122,7 @@ defineProps<{
 
 .lumen-zone__city {
   margin-top: 1rem;
-  font-family: var(--lumen-font-display);
+  font-family: var(--lumen-font-lumen-display);
   font-weight: 700;
   font-size: clamp(1.9rem, 4.4vw, 3rem);
   text-transform: uppercase;
@@ -132,7 +132,7 @@ defineProps<{
 
 .lumen-zone__area {
   margin-top: 0.7rem;
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-size: 0.85rem;
   letter-spacing: 0.1em;
   color: var(--lumen-yellow);

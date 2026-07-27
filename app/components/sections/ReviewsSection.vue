@@ -126,7 +126,7 @@ defineProps<{
 
 .lumen-reviews__author {
   margin-top: 1.1rem;
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-size: 0.78rem;
   letter-spacing: 0.08em;
   color: var(--lumen-muted);
@@ -134,7 +134,7 @@ defineProps<{
 
 .lumen-reviews__source {
   margin-top: 1.6rem;
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;

@@ -91,7 +91,7 @@ defineProps<{
   justify-content: center;
   width: 28px;
   height: 28px;
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-size: 1.05rem;
   color: var(--lumen-yellow);
   border: 1px solid color-mix(in srgb, var(--lumen-yellow) 35%, transparent);

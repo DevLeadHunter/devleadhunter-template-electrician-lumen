@@ -175,7 +175,7 @@ defineProps<{
 }
 
 .lumen-emergency__panel-title {
-  font-family: var(--lumen-font-display);
+  font-family: var(--lumen-font-lumen-display);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -186,7 +186,7 @@ defineProps<{
 .lumen-emergency__phone {
   display: inline-block;
   margin-top: 0.9rem;
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-weight: 600;
   font-size: clamp(1.5rem, 3.4vw, 2.1rem);
   letter-spacing: 0.02em;
@@ -207,7 +207,7 @@ defineProps<{
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-size: 0.75rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;

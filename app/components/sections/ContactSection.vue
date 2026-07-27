@@ -161,7 +161,7 @@ defineProps<{
 }
 
 .lumen-contact__row-label {
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-size: 0.72rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;

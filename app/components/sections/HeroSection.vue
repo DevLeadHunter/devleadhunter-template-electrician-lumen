@@ -264,7 +264,7 @@ defineProps<{
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-size: 0.78rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -292,7 +292,7 @@ defineProps<{
 
 .lumen-hero__title {
   margin-top: 1.4rem;
-  font-family: var(--lumen-font-display);
+  font-family: var(--lumen-font-lumen-display);
   font-weight: 700;
   font-size: clamp(2.5rem, 6.2vw, 4.4rem);
   line-height: 1.02;
@@ -326,7 +326,7 @@ defineProps<{
 }
 
 .lumen-hero__phone-label {
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-size: 0.72rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -334,7 +334,7 @@ defineProps<{
 }
 
 .lumen-hero__phone-number {
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-weight: 600;
   font-size: clamp(1.2rem, 2.4vw, 1.55rem);
   color: var(--lumen-text);
@@ -405,7 +405,7 @@ defineProps<{
   gap: 0.55rem;
   margin: 0;
   padding: 0.8rem 0.3rem 0.1rem;
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -475,7 +475,7 @@ defineProps<{
 
 .lumen-hero__module-text {
   fill: var(--lumen-yellow);
-  font-family: var(--lumen-font-mono);
+  font-family: var(--lumen-font-lumen-mono);
   font-size: 11px;
   letter-spacing: 0.2em;
 }

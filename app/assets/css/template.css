@@ -17,9 +17,9 @@
  * dark palette (night #070B14, yellow #FFD400, amber #FF9F1C).
  */
 @theme {
-  --font-sans: 'Archivo', ui-sans-serif, system-ui, sans-serif;
-  --font-display: 'Chakra Petch', 'Archivo', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-lumen-sans: 'Archivo', ui-sans-serif, system-ui, sans-serif;
+  --font-lumen-display: 'Chakra Petch', 'Archivo', ui-sans-serif, system-ui, sans-serif;
+  --font-lumen-mono: 'IBM Plex Mono', ui-monospace, monospace;
 
   --color-lumen-night: #070b14;
   --color-lumen-yellow: #ffd400;
