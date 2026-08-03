@@ -22,8 +22,10 @@ export const mockSiteContent: SiteContent = {
   servicesHeading: 'Nos prestations',
   about:
     "Électricien installé à Nantes depuis plus de douze ans, j'interviens sur vos dépannages, mises aux normes et rénovations complètes avec la même exigence. Quand vous appelez, vous parlez directement à l'artisan qui viendra chez vous — pas à un standard. Diagnostic honnête, matériel certifié et installation vérifiée avant remise sous tension : c'est ma façon de travailler.",
-  heroImage: 'https://picsum.photos/seed/lumen-hero/800/600',
-  aboutImage: 'https://picsum.photos/seed/lumen-about/800/600',
+  heroImage:
+    'https://images.unsplash.com/photo-1758101755915-462eddc23f57?auto=format&fit=crop&w=1400&q=80',
+  aboutImage:
+    'https://images.unsplash.com/photo-1687819280272-95f9d2a3cdab?auto=format&fit=crop&w=1200&q=80',
   palette: {
     primary: '#FFD400',
     secondary: '#070B14',
@@ -69,23 +71,29 @@ export const mockSiteContent: SiteContent = {
   ],
   gallery: [
     {
-      url: 'https://picsum.photos/seed/lumen1/800/600',
+      url: 'https://images.unsplash.com/photo-1635335874521-7987db781153?auto=format&fit=crop&w=1200&q=80',
       alt: "Rénovation complète d'un tableau électrique",
     },
     {
-      url: 'https://picsum.photos/seed/lumen2/800/600',
-      alt: "Installation d'une borne de recharge IRVE",
-    },
-    {
-      url: 'https://picsum.photos/seed/lumen3/800/600',
+      url: 'https://images.unsplash.com/photo-1576446470246-499c738d1c8e?auto=format&fit=crop&w=1200&q=80',
       alt: "Mise aux normes d'un logement ancien",
     },
-    { url: 'https://picsum.photos/seed/lumen4/800/600', alt: "Pose d'éclairage LED encastré" },
     {
-      url: 'https://picsum.photos/seed/lumen5/800/600',
+      url: 'https://images.unsplash.com/photo-1751486289947-4f5f5961b3aa?auto=format&fit=crop&w=1200&q=80',
       alt: "Câblage soigné d'un coffret de communication",
     },
-    { url: 'https://picsum.photos/seed/lumen6/800/600', alt: 'Tableau domotique connecté' },
+    {
+      url: 'https://images.unsplash.com/photo-1767514536575-82aaf8b0afc4?auto=format&fit=crop&w=1200&q=80',
+      alt: 'Boîte de dérivation raccordée',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1738520420715-23a83fd078f7?auto=format&fit=crop&w=1200&q=80',
+      alt: "Pose d'une prise encastrée",
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1781781988912-98e2d354f2e5?auto=format&fit=crop&w=1200&q=80',
+      alt: 'Prise sur mur bois',
+    },
   ],
   reviews: [
     {

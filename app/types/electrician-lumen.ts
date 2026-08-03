@@ -254,6 +254,44 @@ const lumenDefaults = {
   contactSubheading:
     'Un dépannage, un devis, une question ? Contactez-nous, on vous répond rapidement.',
   contactCtaLabel: 'Appeler maintenant',
+
+  images: {
+    hero: 'https://images.unsplash.com/photo-1758101755915-462eddc23f57?auto=format&fit=crop&w=1400&q=80',
+    about:
+      'https://images.unsplash.com/photo-1687819280272-95f9d2a3cdab?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      {
+        image:
+          'https://images.unsplash.com/photo-1635335874521-7987db781153?auto=format&fit=crop&w=1200&q=80',
+        caption: 'Tableau électrique et disjoncteurs',
+      },
+      {
+        image:
+          'https://images.unsplash.com/photo-1576446470246-499c738d1c8e?auto=format&fit=crop&w=1200&q=80',
+        caption: 'Tableau aux normes NF C 15-100',
+      },
+      {
+        image:
+          'https://images.unsplash.com/photo-1751486289947-4f5f5961b3aa?auto=format&fit=crop&w=1200&q=80',
+        caption: 'Câblage d’une prise',
+      },
+      {
+        image:
+          'https://images.unsplash.com/photo-1767514536575-82aaf8b0afc4?auto=format&fit=crop&w=1200&q=80',
+        caption: 'Boîte de dérivation raccordée',
+      },
+      {
+        image:
+          'https://images.unsplash.com/photo-1738520420715-23a83fd078f7?auto=format&fit=crop&w=1200&q=80',
+        caption: 'Pose de prise encastrée',
+      },
+      {
+        image:
+          'https://images.unsplash.com/photo-1781781988912-98e2d354f2e5?auto=format&fit=crop&w=1200&q=80',
+        caption: 'Prise sur mur bois',
+      },
+    ] as LumenGalleryItem[],
+  },
 } as const
 
 /**
@@ -371,6 +409,16 @@ export function buildElectricianLumenContent(content: SiteContent): LumenPageCon
             .join(' · ')
         : ''
 
+  const galleryFromContent: LumenGalleryItem[] = Array.isArray(content.gallery)
+    ? content.gallery
+        .map((image): LumenGalleryItem => ({ image: image.url ?? '', caption: image.alt ?? '' }))
+        .filter((item): boolean => item.image.length > 0)
+        .slice(0, 8)
+    : []
+  const galleryItems: LumenGalleryItem[] = galleryFromContent.length
+    ? galleryFromContent
+    : lumenDefaults.images.gallery.map((item): LumenGalleryItem => ({ ...item }))
+
   return {
     theme: {
       primary:
@@ -397,7 +445,7 @@ export function buildElectricianLumenContent(content: SiteContent): LumenPageCon
       phone: content.phone ?? '',
       ctaCallLabel: resolveEditorialText(content.ctaCallLabel, lumenDefaults.heroCtaCallLabel),
       ctaQuoteLabel: resolveEditorialText(content.ctaQuoteLabel, lumenDefaults.heroCtaQuoteLabel),
-      image: content.heroImage ?? '',
+      image: content.heroImage || lumenDefaults.images.hero,
       imageCaption: '',
       points: heroPoints,
     },
@@ -424,22 +472,14 @@ export function buildElectricianLumenContent(content: SiteContent): LumenPageCon
       kicker: lumenDefaults.safetyKicker,
       heading: resolveEditorialText(content.aboutHeading, lumenDefaults.safetyHeading),
       text: content.about && content.about.length > 0 ? content.about : lumenDefaults.safetyText,
-      image: content.aboutImage ?? '',
+      image: content.aboutImage || lumenDefaults.images.about,
       imageCaption: lumenDefaults.safetyImageCaption,
       items: lumenDefaults.safetyItems,
     },
     gallery: {
       heading: resolveEditorialText(content.galleryHeading, lumenDefaults.galleryHeading),
       subheading: lumenDefaults.gallerySubheading,
-      items: Array.isArray(content.gallery)
-        ? content.gallery
-            .map((image): LumenGalleryItem => ({
-              image: image.url ?? '',
-              caption: image.alt ?? '',
-            }))
-            .filter((item): boolean => item.image.length > 0)
-            .slice(0, 8)
-        : [],
+      items: galleryItems,
     },
     process: {
       heading: lumenDefaults.processHeading,
