@@ -75,18 +75,31 @@
 
     <main>
       <HeroSection
+        v-bind="editableAttrs(props.content._editable?.hero)"
         :hero="parsed.hero"
         :business-name="businessName" />
-      <TrustStripSection :items="parsed.trustItems" />
+      <TrustStripSection
+        v-bind="editableAttrs(props.content._editable?.trust)"
+        :items="parsed.trustItems" />
       <EmergencySection :emergency="parsed.emergency" />
-      <ServicesSection :services="parsed.services" />
+      <ServicesSection
+        v-bind="editableAttrs(props.content._editable?.services)"
+        :services="parsed.services" />
       <SafetySection :safety="parsed.safety" />
-      <GallerySection :gallery="parsed.gallery" />
+      <GallerySection
+        v-bind="editableAttrs(props.content._editable?.gallery)"
+        :gallery="parsed.gallery" />
       <ProcessSection :process="parsed.process" />
-      <ReviewsSection :reviews="parsed.reviews" />
+      <ReviewsSection
+        v-bind="editableAttrs(props.content._editable?.reviews)"
+        :reviews="parsed.reviews" />
       <ZoneSection :zone="parsed.zone" />
-      <FaqSection :faq="parsed.faq" />
-      <ContactSection :contact="parsed.contact" />
+      <FaqSection
+        v-bind="editableAttrs(props.content._editable?.faq)"
+        :faq="parsed.faq" />
+      <ContactSection
+        v-bind="editableAttrs(props.content._editable?.contact)"
+        :contact="parsed.contact" />
     </main>
 
     <footer class="lumen-footer">
@@ -163,6 +176,7 @@ import FaqSection from './sections/FaqSection.vue'
 import ContactSection from './sections/ContactSection.vue'
 import LumenIcon from './sections/LumenIcon.vue'
 import type { SiteContent } from '~/types/SiteContent'
+import { editableAttrs } from '@devleadhunter/website-content'
 import { buildElectricianLumenContent } from '~/types/electrician-lumen'
 import type { LumenPageContent } from '~/types/electrician-lumen'
 
