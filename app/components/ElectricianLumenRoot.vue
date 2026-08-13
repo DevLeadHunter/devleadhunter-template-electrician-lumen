@@ -13,7 +13,13 @@
         <a
           href="#"
           class="lumen-nav__brand">
+          <img
+            v-if="parsed.logo"
+            :src="parsed.logo"
+            alt=""
+            class="lumen-nav__brand-logo" />
           <span
+            v-else
             class="lumen-nav__brand-mark"
             aria-hidden="true">
             <LumenIcon
@@ -544,6 +550,14 @@ useHead({
   gap: 0.7rem;
   text-decoration: none;
   min-width: 0;
+}
+
+.lumen-nav__brand-logo {
+  height: 32px;
+  width: auto;
+  max-width: 7rem;
+  object-fit: contain;
+  flex: none;
 }
 
 .lumen-nav__brand-mark {

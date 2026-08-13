@@ -151,6 +151,7 @@ export interface LumenSocialLink {
 /** Contenu complet de la page, prêt à être rendu par les sections. */
 export interface LumenPageContent {
   theme: LumenTheme
+  logo: string
   hero: LumenHeroContent
   trustItems: LumenTrustItem[]
   emergency: LumenEmergencyContent
@@ -434,6 +435,7 @@ export function buildElectricianLumenContent(content: SiteContent): LumenPageCon
           ? palette.accent
           : lumenDefaultTheme.accent,
     },
+    logo: typeof content.logo === 'string' ? content.logo.trim() : '',
     hero: {
       badge: resolveEditorialText(content.heroBadge, lumenDefaults.heroBadge),
       title: content.businessName ?? '',
