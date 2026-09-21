@@ -80,8 +80,8 @@
 
 <script lang="ts" setup>
 /**
- * Section « Sécurité & normes » : les normes (NF C 15-100, Consuel, 30 mA, terre)
- * sont présentées comme les modules d'un tableau électrique. Quand la section
+ * Section « Sécurité & normes » : les repères de conformité (normes, attestation, 30 mA, terre)
+ * sont présentés comme les modules d'un tableau électrique. Quand la section
  * entre à l'écran, les disjoncteurs s'enclenchent un par un — cliquables ensuite.
  * La colonne texte affiche aussi la photo « à propos » du prospect
  * (`SiteContent.aboutImage`) dans un cadre façon hero — masquée si absente.

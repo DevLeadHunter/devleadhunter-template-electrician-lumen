@@ -182,8 +182,8 @@ const lumenDefaults = {
 
   trustItems: [
     { value: '7j/7', label: 'Dépannage & urgences' },
-    { value: 'NF C 15-100', label: 'Installations aux normes' },
-    { value: 'Garantie décennale', label: 'Travaux assurés' },
+    { value: '100% conforme', label: 'Installations aux normes' },
+    { value: 'Travail garanti', label: 'Interventions assurées' },
     { value: 'Devis 0 €', label: 'Sans engagement' },
   ] as LumenTrustItem[],
 
@@ -205,11 +205,11 @@ const lumenDefaults = {
   safetyKicker: 'Sécurité & conformité',
   safetyHeading: 'Une installation sûre, aux normes',
   safetyText:
-    'Une installation électrique, ça ne se voit pas — mais ça doit être irréprochable. Chaque intervention respecte la norme NF C 15-100 : protections adaptées, mise à la terre et différentiels haute sensibilité. On sécurise, on vérifie, et on vous explique.',
+    'Une installation électrique, ça ne se voit pas — mais ça doit être irréprochable. Chaque intervention respecte les normes en vigueur : protections adaptées, mise à la terre et différentiels haute sensibilité. On sécurise, on vérifie, et on vous explique.',
   safetyImageCaption: "L'artisan sur le terrain",
   safetyItems: [
-    { code: 'NF C 15-100', label: 'Norme des installations basse tension' },
-    { code: 'Consuel', label: 'Attestation de conformité' },
+    { code: 'Normes', label: 'Installation aux normes en vigueur' },
+    { code: 'Conformité', label: 'Attestation en fin de chantier' },
     { code: '30 mA', label: 'Différentiel haute sensibilité' },
     { code: 'Terre', label: 'Mise à la terre vérifiée' },
   ] as LumenSafetyItem[],
@@ -269,7 +269,7 @@ const lumenDefaults = {
       {
         image:
           'https://images.unsplash.com/photo-1576446470246-499c738d1c8e?auto=format&fit=crop&w=1200&q=80',
-        caption: 'Tableau aux normes NF C 15-100',
+        caption: 'Tableau électrique rénové, aux normes',
       },
       {
         image:
