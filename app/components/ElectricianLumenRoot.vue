@@ -73,7 +73,7 @@
           <a
             href="#contact"
             class="lumen-btn lumen-btn--primary lumen-nav__cta"
-            >Devis gratuit</a
+            >{{ parsed.hero.ctaQuoteLabel }}</a
           >
         </div>
       </div>
@@ -86,7 +86,8 @@
         :business-name="businessName" />
       <TrustStripSection
         v-bind="editableAttrs(props.content._editable?.trust)"
-        :items="parsed.trustItems" />
+        :items="parsed.trustItems"
+        :professional-license="parsed.professionalLicense" />
       <EmergencySection :emergency="parsed.emergency" />
       <ServicesSection
         v-bind="editableAttrs(props.content._editable?.services)"
@@ -134,6 +135,7 @@
         <p class="lumen-footer__meta">
           <template v-if="parsed.contact.city">{{ parsed.contact.city }} · </template>
           <template v-if="parsed.contact.phone">{{ parsed.contact.phone }} · </template>
+          <template v-if="parsed.professionalLicense">{{ parsed.professionalLicense }} · </template>
           © {{ currentYear }} — Tous droits réservés
         </p>
       </div>

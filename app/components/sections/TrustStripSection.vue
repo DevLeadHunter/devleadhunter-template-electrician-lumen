@@ -15,6 +15,11 @@
           <dd class="lumen-trust__value">{{ item.value }}</dd>
         </div>
       </dl>
+      <p
+        v-if="professionalLicense"
+        class="lumen-trust__license">
+        {{ professionalLicense }}
+      </p>
     </div>
   </section>
 </template>
@@ -28,6 +33,7 @@ import type { LumenTrustItem } from '~/types/electrician-lumen'
 
 defineProps<{
   items: LumenTrustItem[]
+  professionalLicense?: string
 }>()
 </script>
 
@@ -80,6 +86,18 @@ defineProps<{
   font-weight: 600;
   font-size: clamp(1.15rem, 2.2vw, 1.45rem);
   color: var(--lumen-text);
+}
+
+.lumen-trust__license {
+  margin: 0;
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--lumen-line);
+  font-family: var(--lumen-font-lumen-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: right;
+  opacity: 0.8;
 }
 
 .lumen-trust__label {

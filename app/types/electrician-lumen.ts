@@ -12,6 +12,7 @@
  * sections attendent.
  */
 import type { SiteContent } from '~/types/SiteContent'
+import { professionalLicenseLine } from '@devleadhunter/website-content'
 
 export interface LumenTheme {
   primary: string
@@ -164,6 +165,7 @@ export interface LumenPageContent {
   faq: LumenFaqContent
   contact: LumenContactContent
   social: LumenSocialLink[]
+  professionalLicense: string
 }
 
 /**
@@ -184,7 +186,7 @@ const lumenDefaults = {
     { value: '7j/7', label: 'Dépannage & urgences' },
     { value: '100% conforme', label: 'Installations aux normes' },
     { value: 'Travail garanti', label: 'Interventions assurées' },
-    { value: 'Devis 0 €', label: 'Sans engagement' },
+    { value: 'Devis gratuit', label: 'Sans engagement' },
   ] as LumenTrustItem[],
 
   emergencyHeading: 'Une panne ? On intervient vite.',
@@ -530,5 +532,6 @@ export function buildElectricianLumenContent(content: SiteContent): LumenPageCon
       ctaLabel: lumenDefaults.contactCtaLabel,
     },
     social: normalizeSocial(content.social),
+    professionalLicense: professionalLicenseLine(content),
   }
 }
